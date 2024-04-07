@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Loader from './Loader';
-
 export default class News extends Component {
   constructor(){
     super();
@@ -14,6 +13,7 @@ export default class News extends Component {
   };  
   componentDidMount() {
     this.setState( {loading: true} );
+    this.props.setProgress(10);
     fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.state.pagesize}`)
     .then(res => res.json())
     .then((data) =>{
@@ -23,6 +23,7 @@ export default class News extends Component {
             loading : false
         })
     });
+    this.props.setProgress(100);
 }
 handlePrevPage=async()=>{
   this.setState( {loading: true} );
@@ -40,7 +41,7 @@ handleNextPage=async()=>{
     if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)) {
         
     }else {
-      this.setState( {loading: true} );
+      this.props.setProgress(10);
         fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page + 1}&pageSize=${this.state.pagesize}`)
         .then(res => res.json())
         .then((data) =>{
@@ -52,11 +53,14 @@ handleNextPage=async()=>{
         });
     }
     }
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   render() {
     return (
       <div className='container mt-3'>
-        <h1>Top Headlines</h1>
-        {this.state.loading && <Loader/>}
+        <h1>Top Headlines | {this.capitalizeFirstLetter(`${this.props.category}`)}</h1>
+        {this.state.loading && <Loader/>} 
         <div className='d-flex flex-wrap' data-masonry={{"percentPosition": true }}>
           {!this.state.loading && this.state.articles.map((element)=>{
             return <NewsItem title= {element.title} description = {element.description} imgURL = {element.urlToImage} linkURL = {element.url} datetime = {element.publishedAt} source = {element.source.name} key = {element.url} />

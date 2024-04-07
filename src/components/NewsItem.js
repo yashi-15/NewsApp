@@ -6,8 +6,8 @@ export default class NewsItem extends Component {
     return (
       <div>
         <div className="card m-3" style={{width: "18rem"}}>
-        <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{zIndex: 1, left: '90%' }}> <small>{source}</small></span>
-          <img src={imgURL} className="card-img-top" alt="..." />
+        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{zIndex: 1, left: '90%' }}> <small>{source}</small></span>
+          <img src={imgURL? imgURL: "https://www.imore.com/sites/imore.com/files/styles/xlarge/public/field/image/2016/08/News-app-iPad-hero.jpg"} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">
