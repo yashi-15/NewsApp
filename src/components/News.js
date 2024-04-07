@@ -59,7 +59,7 @@ handleNextPage=async()=>{
         {this.state.loading && <Loader/>}
         <div className='d-flex flex-wrap' data-masonry={{"percentPosition": true }}>
           {!this.state.loading && this.state.articles.map((element)=>{
-            return <NewsItem title= {element.title} description = {element.description} imgURL = {element.urlToImage} linkURL = {element.url} key = {element.url} />
+            return <NewsItem title= {element.title} description = {element.description} imgURL = {element.urlToImage} linkURL = {element.url} datetime = {element.publishedAt} source = {element.source.name} key = {element.url} />
           })}      
         </div>
         <div className="container d-flex justify-content-between">

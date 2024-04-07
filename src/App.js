@@ -20,7 +20,6 @@ export default class App extends Component {
             <Route exact path="/technology" element={<News key = "technology" apikey="4d18a59c3b5e4919a996e6c84467c007" country="in" category="technology" pagesize="20" />} />
           </Routes>
         </BrowserRouter>
-        <News apikey="4d18a59c3b5e4919a996e6c84467c007" country="in" category="sports" pagesize="20" />
       </div>
     );
   }
