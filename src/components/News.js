@@ -41,6 +41,7 @@ handleNextPage=async()=>{
     if (this.state.page + 1 > Math.ceil(this.state.totalResults/20)) {
         
     }else {
+      this.setState( {loading: true} );
         fetch(`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page + 1}&pageSize=${this.state.pagesize}`)
         .then(res => res.json())
         .then((data) =>{
