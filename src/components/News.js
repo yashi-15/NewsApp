@@ -59,16 +59,16 @@ handleNextPage=async()=>{
   render() {
     return (
       <div className='container mt-3'>
-        <h1>Top Headlines | {this.capitalizeFirstLetter(`${this.props.category}`)}</h1>
+        <h1 className='text-light my-5'>Top Headlines | <span className='bg-danger p-1'>{this.capitalizeFirstLetter(`${this.props.category}`)}</span></h1>
         {this.state.loading && <Loader/>} 
-        <div className='d-flex flex-wrap' data-masonry={{"percentPosition": true }}>
+        <div className='d-flex flex-wrap card-deck' data-masonry={{"percentPosition": true }}>
           {!this.state.loading && this.state.articles.map((element)=>{
             return <NewsItem title= {element.title} description = {element.description} imgURL = {element.urlToImage} linkURL = {element.url} datetime = {element.publishedAt} source = {element.source.name} key = {element.url} />
           })}      
         </div>
         <div className="container d-flex justify-content-between">
-            <button disabled = {this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevPage}>&#8592; Previous</button>
-            <button disabled = {this.state.page + 1 > Math.ceil(this.state.totalResults/20)} type="button" className="btn btn-dark" onClick={this.handleNextPage}>Next &#8594;</button>
+            <button disabled = {this.state.page <= 1} type="button" className="btn btn-dark m-5" onClick={this.handlePrevPage}>&#8592; Previous</button>
+            <button disabled = {this.state.page + 1 > Math.ceil(this.state.totalResults/20)} type="button" className="btn btn-dark m-5" onClick={this.handleNextPage}>Next &#8594;</button>
         </div>
       </div>
     )

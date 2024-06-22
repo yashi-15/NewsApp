@@ -6,9 +6,9 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-black">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
+            <Link className="text-light navbar-brand" to="/">
               News Spot
             </Link>
             <button
@@ -25,42 +25,42 @@ export class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link" aria-current="page" to="/">
+                  <Link className="nav-link text-light link-danger" aria-current="page" to="/">
                   General
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/entertainment">
+                  <Link className="nav-link text-light link-danger" to="/entertainment">
                   Entertainment
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/health">
+                  <Link className="nav-link text-light link-danger" to="/health">
                   Health
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/business">
+                  <Link className="nav-link text-light link-danger" to="/business">
                   Business
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/science">
+                  <Link className="nav-link text-light link-danger" to="/science">
                   Science
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/sports">
+                  <Link className="nav-link text-light link-danger" to="/sports">
                   Sports
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/technology">
+                  <Link className="nav-link text-light link-danger" to="/technology">
                   Technology
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex" role="search">
+              {/* <form className="d-flex" role="search">
                 <input
                   className="form-control me-2"
                   type="search"
@@ -70,7 +70,7 @@ export class Navbar extends Component {
                 <button className="btn btn-outline-success" type="submit">
                   Search
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </nav>
